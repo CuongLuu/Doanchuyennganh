@@ -21,13 +21,11 @@ namespace Demo.Models
         [StringLength(50)]
         public string ten { get; set; }
 
-        [StringLength(40)]
+        [StringLength(50)]
         public string anh { get; set; }
 
-        [StringLength(10)]
-        public string gioitinh { get; set; }
+        public byte? gioitinh { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime? ngaysinh { get; set; }
 
         [StringLength(11)]
@@ -36,22 +34,22 @@ namespace Demo.Models
         [StringLength(200)]
         public string diachi { get; set; }
 
+        [StringLength(255)]
+        public string matkhau { get; set; }
+
         [StringLength(40)]
         public string email { get; set; }
-
-        [StringLength(30)]
-        public string matkhau { get; set; }
 
         [StringLength(12)]
         public string cmnd { get; set; }
 
-        public int? status { get; set; }
+        public byte? status { get; set; }
 
-        public int? type { get; set; }
+        public byte? type { get; set; }
 
         public DateTime? ngaytao { get; set; }
 
-        public DateTime? ngaycapnhat { get; set; }
+        public DateTime? ngaysua { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SanPham> SanPhams { get; set; }

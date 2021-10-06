@@ -122,12 +122,12 @@ namespace Demo.Controllers
                     if (u.type == 1)
                     {
                         Session["AccountAdmin"] = u;
-                        return RedirectToAction("Dashboard", "Home");
+                        return RedirectToAction("ProfileAdmin", "Home");
                     }
                     else if (u.type == 0)
                     {
                         Session["AccountAuthor"] = u;
-                        return RedirectToAction("HomeOfAuthor", "Home");
+                        return RedirectToAction("Profile", "Home");
                     }
 
                 }
@@ -163,7 +163,7 @@ namespace Demo.Controllers
                 {
                     u.ten = f["name"].ToString();
                     u.email = f["email"].ToString();
-                    u.ngaysinh = null;
+                    u.ngaysinh = System.Convert.ToDateTime(f["birthday"]);
                     u.matkhau = BCrypt.Net.BCrypt.HashPassword(f["password"].ToString(), 12);
                     u.status = 0;
                     u.gioitinh = null;
@@ -172,7 +172,7 @@ namespace Demo.Controllers
                     u.sdt = f["phone"].ToString();
                     u.diachi = f["address"].ToString();
                     u.ngaytao = DateTime.Now;
-                    u.ngaycapnhat = null;
+                    u.ngaysua = null;
                     u.anh = "defaultAvatar.png";
                     context.Admins.Add(u);
                     context.SaveChanges();
