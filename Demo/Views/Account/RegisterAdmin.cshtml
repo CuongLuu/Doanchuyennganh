@@ -1,0 +1,115 @@
+﻿@model Demo.Models.Admin
+@{
+    Layout = null;
+}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="~/Content/LogginAdmin/css/style.css">
+
+</head>
+<body class="img js-fullheight" style="background-image: url(/Content/LogginAdmin/images/bg.jpg);">
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-5 col-lg-6 col-md-8 px-5">
+                    <h1 class="text-white">ĐĂNG KÝ THÀNH VIÊN</h1>
+                    <p class="text-lead text-white">
+                        @if (ViewBag.Status != null)
+                        {
+                            @ViewBag.Status
+                        }
+                    </p>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+                        <h3 class="mb-4 text-center">Have an account?</h3>
+                        <form action="#" class="signin-form">
+                            @using (Html.BeginForm("RegisterAdmin", "Account", FormMethod.Post, new { @role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-group first">
+                                    <label for="username">Họ và tên</label>
+                                    @*<input type="text" name="name" class="form-control" placeholder="Họ và tên" required="">*@
+                                    @Html.TextBox("name", "", new { required = "required", placeholder = "Name", type = "text", @class = "form-control" })
+                                </div>
+                                <div class="form-group first">
+                                    <label for="useremail">Email của bạn</label>
+                                    @*<input type="email" name="email" id="email" class="form-control" placeholder="Email của bạn" required="">*@
+                                    @Html.TextBox("email", "", new { required = "required", placeholder = "Email", type = "email", @class = "form-control" })
+                                </div>
+                                <div class="form-group first">
+                                    <label for="useraddress">Địa chỉ của bạn</label>
+                                    @*<input type="email" name="email" id="email" class="form-control" placeholder="Email của bạn" required="">*@
+                                    @Html.TextBox("address", "", new { required = "required", placeholder = "Address", type = "text", @class = "form-control" })
+                                </div>
+                                <div class="form-group first">
+                                    <label for="userphone">SĐT của bạn</label>
+                                    @*<input type="email" name="email" id="email" class="form-control" placeholder="Email của bạn" required="">*@
+                                    @Html.TextBox("phone", "", new { required = "required", placeholder = "Phone", type = "text", @class = "form-control" })
+                                </div>
+                                <div class="form-group first">
+                                    <label for="usercmnd">CMND của bạn</label>
+                                    @*<input type="email" name="email" id="email" class="form-control" placeholder="Email của bạn" required="">*@
+                                    @Html.TextBox("cmnd", "", new { required = "required", placeholder = "Cmnd", type = "text", @class = "form-control" })
+                                </div>
+                                <div class="form-group first">
+                                    <label for="userday">Ngày sinh của bạn</label>
+                                    @*<input type="email" name="email" id="email" class="form-control" placeholder="Email của bạn" required="">*@
+                                    @Html.TextBox("birthday", "", new { required = "required", placeholder = "Birthday", type = "date", @class = "form-control" })
+                                </div>
+
+                                <div class="form-group last mb-3">
+                                    <label for="password">Mật khẩu</label>
+                                    @*<input type="password" name="password" class="form-control" placeholder="Mật khẩu" id="password" required="">*@
+                                    @Html.TextBox("password", "", new { required = "required", placeholder = "Mật khẩu", type = "password", @class = "form-control" })
+                                </div>
+                                <div class="form-group last mb-3">
+                                    <label for="password">Nhập lại mật khẩu</label>
+                                    @*<input type="password" name="repassword" class="form-control" id="repassword" placeholder="Nhập lại mật khẩu" required="">*@
+                                    @Html.TextBox("repassword", "", new { required = "required", placeholder = "Nhập lại Mật khẩu", type = "password", @class = "form-control" })
+                                </div>
+                                <div class="form-grid" style="text-align:center">
+                                    @*<button type="submit" class="btn btn-primary btn-style">Đăng ký</button>*@
+                                    <input type="submit" value="Đăng ký" class="btn btn-primary my-4" />
+                                </div>
+
+
+                            }
+                            <div class="form-group d-md-flex">
+                                <div class="w-50">
+
+                                </div>
+                                <div class="w-50 text-md-right">
+                                    <a href="@Url.Action("LoginAdmin","Account")" style="color: #fff">Đã có tài khoản </a>
+                                </div>
+                            </div>
+                        </form>
+                        <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
+                        <div class="social d-flex text-center">
+                            <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
+                            <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="~/Content/LogginAdmin/js/jquery.min.js"></script>
+    <script src="~/Content/LogginAdmin/js/popper.js"></script>
+    <script src="~/Content/LogginAdmin/js/bootstrap.min.js"></script>
+    <script src="~/Content/LogginAdmin/js/main.js"></script>
+
+</body>
+</html>
+
