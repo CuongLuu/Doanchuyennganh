@@ -78,6 +78,26 @@ namespace Demo.Models
                 .Property(e => e.matkhau)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<NguoiDung>()
+                .HasMany(e => e.CMTs)
+                .WithRequired(e => e.NguoiDung)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<NguoiDung>()
+                .HasMany(e => e.CTHDs)
+                .WithRequired(e => e.NguoiDung)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<NguoiDung>()
+                .HasMany(e => e.Danhgias)
+                .WithRequired(e => e.NguoiDung)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<NguoiDung>()
+                .HasMany(e => e.Donhangs)
+                .WithRequired(e => e.NguoiDung)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<SanPham>()
                 .Property(e => e.hinhanh)
                 .IsUnicode(false);

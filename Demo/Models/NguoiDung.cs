@@ -24,10 +24,8 @@ namespace Demo.Models
         [StringLength(50)]
         public string tenND { get; set; }
 
-        [StringLength(10)]
-        public string gioitinh { get; set; }
+        public byte? gioitinh { get; set; }
 
-        [Column(TypeName = "date")]
         public DateTime? ngaysinh { get; set; }
 
         [StringLength(50)]
@@ -39,11 +37,14 @@ namespace Demo.Models
         [StringLength(40)]
         public string email { get; set; }
 
-        public int? status { get; set; }
+        [StringLength(200)]
+        public string diachi { get; set; }
+
+        public byte? status { get; set; }
 
         public DateTime? ngaytao { get; set; }
 
-        public DateTime? ngaycapnhat { get; set; }
+        public DateTime? ngaysua { get; set; }
 
         [StringLength(255)]
         public string matkhau { get; set; }

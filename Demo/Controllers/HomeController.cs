@@ -18,6 +18,11 @@ namespace Demo.Controllers
             return View();
         }
 
+        public ActionResult ProfileUser()
+        {
+            return View();
+        }
+
         public ActionResult ProfileAdmin()
         {
             ViewBag.Message = "Your contact page.";

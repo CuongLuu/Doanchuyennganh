@@ -43,7 +43,7 @@ namespace Demo.Controllers
                 if (checkPass)
                 {
                     Session["Account"] = u;
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("ProfileUser", "Home");
                 }
                 else
 
@@ -52,7 +52,11 @@ namespace Demo.Controllers
             }
             return View();
         }
-
+        public ActionResult Logout()
+        {
+            Session["Account"] = null;
+            return RedirectToAction("Index", "Home");
+        }
         public ActionResult Register()
         {
             return View();
@@ -82,8 +86,12 @@ namespace Demo.Controllers
                     u.matkhau = BCrypt.Net.BCrypt.HashPassword(f["password"].ToString(), 12);
                     u.status = 1;
                     u.ngaytao = DateTime.Now;
-                    u.ngaycapnhat = null;
-                    u.anh = "defaultAvatar.png";
+                    u.gioitinh = null;
+                    u.sdt = f["phone"].ToString();
+                    u.ngaysua = null;
+                    u.ngaysinh = System.Convert.ToDateTime(f["birthday"]);
+                    u.diachi = f["address"].ToString();
+                    u.anh = "/Content/defaultAvatar.png";
                     context.NguoiDungs.Add(u);
                     context.SaveChanges();
                     Session["Account"] = u;
@@ -126,7 +134,7 @@ namespace Demo.Controllers
                     }
                     else if (u.type == 0)
                     {
-                        Session["AccountAuthor"] = u;
+                        Session["Account"] = u;
                         return RedirectToAction("Profile", "Home");
                     }
 
