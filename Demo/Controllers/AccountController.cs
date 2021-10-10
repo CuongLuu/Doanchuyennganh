@@ -43,7 +43,7 @@ namespace Demo.Controllers
                 if (checkPass)
                 {
                     Session["Account"] = u;
-                    return RedirectToAction("ProfileUser", "Home");
+                    return RedirectToAction("Index", "Home");
                 }
                 else
 

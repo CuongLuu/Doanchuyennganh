@@ -50,6 +50,16 @@ namespace Demo.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<Admin>()
+                .HasMany(e => e.CMTs)
+                .WithRequired(e => e.Admin)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Admin>()
+                .HasMany(e => e.Cuahangs)
+                .WithRequired(e => e.Admin)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Admin>()
                 .HasMany(e => e.SanPhams)
                 .WithRequired(e => e.Admin)
                 .WillCascadeOnDelete(false);

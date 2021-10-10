@@ -20,6 +20,10 @@ namespace Demo.Models
         [StringLength(1000)]
         public string cmt1 { get; set; }
 
+        public int idAdmin { get; set; }
+
+        public virtual Admin Admin { get; set; }
+
         public virtual NguoiDung NguoiDung { get; set; }
 
         public virtual SanPham SanPham { get; set; }
