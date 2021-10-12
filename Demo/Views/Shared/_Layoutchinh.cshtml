@@ -58,7 +58,7 @@
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="true">@u.tenND</a>
                             <div class="dropdown-menu">
                                 <a href="@Url.Action("ProfileUser", "Home")" class="dropdown-item">Thông tin của tôi</a>
-                                <a href="@Url.Action("EditProfile", "Home", new { id=u.maND })" class="dropdown-item">Cập nhật thông tin</a>
+                                <a href="@Url.Action("EditProfileUser", "Home", new { id=u.maND })" class="dropdown-item">Cập nhật thông tin</a>
                                 <a href="@Url.Action("ChangePass", "Account", new { id=u.maND })" class="dropdown-item">Đổi mật khẩu</a>
                                 <a href="@Url.Action("Logout", "Account")" class="dropdown-item">Đăng xuất</a>
                             </div>

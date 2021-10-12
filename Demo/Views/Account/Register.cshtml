@@ -36,7 +36,7 @@
                             <a class="brand-logo" href="#">ĐĂNG KÝ TÀI KHOẢN</a>
                         </div>
                         <form action="#" method="post">
-                            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "" }))
+                            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { enctype = "multipart/form-data" }))
                             {
                                 @Html.AntiForgeryToken()
                                 <div class="form-group first">
@@ -57,7 +57,7 @@
                                 </div>
                                 <div class="form-group first">
                                     <label for="userphone">SĐT của bạn</label>
-                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Email của bạn" required="">
+                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="SDT của bạn" required="">
                                 </div>
                                 <div class="form-group first">
                                     <label for="userday">Ngày sinh của bạn</label>

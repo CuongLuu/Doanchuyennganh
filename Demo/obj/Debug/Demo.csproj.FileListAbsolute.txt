@@ -234,3 +234,5 @@ F:\Dowload\Github\New folder\Doanchuyennganh\Demo\obj\Debug\Demo.csproj.CoreComp
 F:\Dowload\Github\New folder\Doanchuyennganh\Demo\obj\Debug\Demo.csproj.CopyComplete
 F:\Dowload\Github\New folder\Doanchuyennganh\Demo\obj\Debug\Demo.dll
 F:\Dowload\Github\New folder\Doanchuyennganh\Demo\obj\Debug\Demo.pdb
+F:\Dowload\Github\New folder\Doanchuyennganh\Demo\bin\DocumentFormat.OpenXml.dll
+F:\Dowload\Github\New folder\Doanchuyennganh\Demo\bin\DocumentFormat.OpenXml.xml

@@ -91,7 +91,7 @@ namespace Demo.Controllers
                     u.ngaysua = null;
                     u.ngaysinh = System.Convert.ToDateTime(f["birthday"]);
                     u.diachi = f["address"].ToString();
-                    u.anh = "/Content/defaultAvatar.png";
+                    u.anh = "defaultAvatar.png";
                     context.NguoiDungs.Add(u);
                     context.SaveChanges();
                     Session["Account"] = u;
@@ -130,12 +130,12 @@ namespace Demo.Controllers
                     if (u.type == 1)
                     {
                         Session["AccountAdmin"] = u;
-                        return RedirectToAction("ProfileAdmin", "Home");
+                        return RedirectToAction("AdminManage", "Admin");
                     }
                     else if (u.type == 0)
                     {
-                        Session["Account"] = u;
-                        return RedirectToAction("Profile", "Home");
+                        Session["AccountAdmin"] = u;
+                        return RedirectToAction("AdminManage", "Admin");
                     }
 
                 }
@@ -194,6 +194,11 @@ namespace Demo.Controllers
                 }
             }
 
+        }
+        public ActionResult LogoutAdmin()
+        {
+            Session["AccountAdmin"] = null;
+            return RedirectToAction("LoginAdmin", "Account");
         }
     }
 }

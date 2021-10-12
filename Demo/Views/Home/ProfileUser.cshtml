@@ -107,7 +107,7 @@
                     <div class="carousel">
                         <div class="owl-carousel">
                             <div class="img-place wow fadeInUp">
-                            <img src="@u.anh" alt="">
+                            <img src="~/Image/ImageUpload/@u.anh" alt="">
                             </div>
                          </div>
                     </div>
@@ -121,7 +121,7 @@
                         <li><b>SĐT:</b>@u.sdt</li>
                         <li><b>Sinh nhật:</b>@u.ngaysinh</li>
                         <li>
-                            <b>Giới tính:</b> 
+                            <b>Giới tính:</b>
                             @if (u.gioitinh == null)
                             {
 
@@ -145,6 +145,9 @@
                             }
                         </li>
                     </ul>
+                    <a href="@Url.Action("EditProfileUser", "Home", new { id=u.maND })">
+                        <button class="btn custom-btn"> Chỉnh sửa</button>
+                    </a>
                 </div>
             </div>
         }

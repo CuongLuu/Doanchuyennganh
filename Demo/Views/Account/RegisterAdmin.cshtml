@@ -20,18 +20,15 @@
     <section class="ftco-section">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-xl-5 col-lg-6 col-md-8 px-5">
-                    <h1 class="text-white">ĐĂNG KÝ THÀNH VIÊN</h1>
-                    <p class="text-lead text-white">
-                        @if (ViewBag.Status != null)
-                        {
-                            @ViewBag.Status
-                        }
-                    </p>
-                </div>
                 <div class="col-md-6 col-lg-4">
                     <div class="login-wrap p-0">
-                        <h3 class="mb-4 text-center">Have an account?</h3>
+                        <h3 class="mb-4 text-center">Đăng ký thành viên</h3>
+                        <p class="text-lead text-white">
+                            @if (ViewBag.Status != null)
+                            {
+                                @ViewBag.Status
+                            }
+                        </p>
                         <form action="#" class="signin-form" method="post">
                             @using (Html.BeginForm("RegisterAdmin", "Account", FormMethod.Post, new { @class = "" }))
                             {
@@ -40,50 +37,47 @@
                                 <div class="form-group first">
                                     <label for="username">Họ và tên</label>
                                     <input type="text" name="name" class="form-control" placeholder="Họ và tên" required="">
-                                   @* @Html.TextBox("name", "", new { required = "required", placeholder = "Name", type = "text", @class = "form-control" })*@
                                 </div>
                                 <div class="form-group first">
                                     <label for="useremail">Email của bạn</label>
                                     <input type="email" name="email" id="email" class="form-control" placeholder="Email của bạn" required="">
-@*                                    @Html.TextBox("email", "", new { required = "required", placeholder = "Email", type = "email", @class = "form-control" })
-*@                                </div>
+                                  
+                                </div>
                                 <div class="form-group first">
                                     <label for="useraddress">Địa chỉ của bạn</label>
                                     <input type="text" name="address" id="address" class="form-control" placeholder="Địa chỉ" required="">
-@*                                    @Html.TextBox("address", "", new { required = "required", placeholder = "address", type = "text", @class = "form-control" })
-*@                                </div>
+                                   
+                                </div>
                                 <div class="form-group first">
                                     <label for="userphone">SĐT của bạn</label>
-                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Email của bạn" required="">
-@*                                    @Html.TextBox("phone", "", new { required = "required", placeholder = "Phone", type = "text", @class = "form-control" })
-*@                                </div>
+                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="SĐT của bạn" required="">
+                                   
+                                </div>
                                 <div class="form-group first">
                                     <label for="usercmnd">CMND của bạn</label>
                                     <input type="text" name="cmnd" id="cmnd" class="form-control" placeholder="Số CMND" required="">
-@*                                    @Html.TextBox("cmnd", "", new { required = "required", placeholder = "Cmnd", type = "text", @class = "form-control" })
-*@                                </div>
+                                   
+                                </div>
                                 <div class="form-group first">
                                     <label for="userday">Ngày sinh của bạn</label>
                                     <input type="date" name="birthday" id="birthday" class="form-control" placeholder="" required="">
-@*                                    @Html.TextBox("birthday", "", new { required = "required", placeholder = "Birthday", type = "date", @class = "form-control" })
-*@                                </div>
+                                    
+                                </div>
 
                                 <div class="form-group last mb-3">
                                     <label for="password">Mật khẩu</label>
                                     <input type="password" name="password" class="form-control" placeholder="Mật khẩu" id="password" required="">
-@*                                    @Html.TextBox("password", "", new { required = "required", placeholder = "Mật khẩu", type = "password", @class = "form-control" })
-*@                                </div>
+                                    
+                                </div>
                                 <div class="form-group last mb-3">
                                     <label for="password">Nhập lại mật khẩu</label>
                                     <input type="password" name="repassword" class="form-control" id="repassword" placeholder="Nhập lại mật khẩu" required="">
-@*                                    @Html.TextBox("repassword", "", new { required = "required", placeholder = "Nhập lại Mật khẩu", type = "password", @class = "form-control" })
-*@                                </div>
+                                    
+                                </div>
                                 <div class="form-grid" style="text-align:center">
                                     <button type="submit" class="btn btn-primary btn-style">Đăng ký</button>
-@*                                    <input type="submit" value="Đăng ký" class="btn btn-primary my-4" />
-*@                                </div>
-
-
+                                    
+                                </div>
                             }
                             <div class="form-group d-md-flex">
                                 <div class="w-50">
@@ -94,11 +88,6 @@
                                 </div>
                             </div>
                         </form>
-                        <p class="w-100 text-center">&mdash; Or Sign In With &mdash;</p>
-                        <div class="social d-flex text-center">
-                            <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> Facebook</a>
-                            <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> Twitter</a>
-                        </div>
                     </div>
                 </div>
             </div>

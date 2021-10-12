@@ -5,6 +5,7 @@ namespace Demo.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web;
 
     [Table("NguoiDung")]
     public partial class NguoiDung
@@ -30,6 +31,9 @@ namespace Demo.Models
 
         [StringLength(50)]
         public string anh { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase ImageUpload { get; set; }
 
         [StringLength(11)]
         public string sdt { get; set; }
