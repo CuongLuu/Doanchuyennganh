@@ -72,6 +72,11 @@ namespace Demo.Models
                 .Property(e => e.email)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<Cuahang>()
+                .HasMany(e => e.SanPhams)
+                .WithRequired(e => e.Cuahang)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<NguoiDung>()
                 .Property(e => e.anh)
                 .IsUnicode(false);

@@ -15,6 +15,7 @@ namespace Demo.Models
             CTHDs = new HashSet<CTHD>();
             Danhgias = new HashSet<Danhgia>();
             Donhangs = new HashSet<Donhang>();
+            SanPhams = new HashSet<SanPham>();
         }
 
         [Key]
@@ -48,5 +49,8 @@ namespace Demo.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Donhang> Donhangs { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SanPham> SanPhams { get; set; }
     }
 }

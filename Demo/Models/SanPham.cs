@@ -28,6 +28,11 @@ namespace Demo.Models
 
         public int maSize { get; set; }
 
+        public int maCH { get; set; }
+
+        [StringLength(50)]
+        public string tenSP { get; set; }
+
         public double? gia { get; set; }
 
         [StringLength(255)]
@@ -49,6 +54,8 @@ namespace Demo.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHD> CTHDs { get; set; }
+
+        public virtual Cuahang Cuahang { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Danhgia> Danhgias { get; set; }

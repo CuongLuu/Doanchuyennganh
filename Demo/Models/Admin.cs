@@ -28,6 +28,7 @@ namespace Demo.Models
 
         public byte? gioitinh { get; set; }
 
+        [Column(TypeName = "date")]
         public DateTime? ngaysinh { get; set; }
 
         [StringLength(11)]
