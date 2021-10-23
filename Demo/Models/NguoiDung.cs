@@ -33,7 +33,6 @@ namespace Demo.Models
         public string anh { get; set; }
         [NotMapped]
         public HttpPostedFileBase ImageUpload { get; set; }
-
         [StringLength(11)]
         public string sdt { get; set; }
 

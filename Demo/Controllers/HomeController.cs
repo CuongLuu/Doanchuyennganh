@@ -94,6 +94,16 @@ namespace Demo.Controllers
 
             return View();
         }
-        
+        public ActionResult Productdetails(int id)
+        {
+            SanPham dbsanpham = context.SanPhams.FirstOrDefault(p => p.maSP == id);
+            return View(dbsanpham);
+        }
+        public ActionResult Cart(int id)
+        {
+            SanPham dbsanpham = context.SanPhams.FirstOrDefault(p => p.maSP == id);
+
+            return View(dbsanpham);
+        }
     }
 }

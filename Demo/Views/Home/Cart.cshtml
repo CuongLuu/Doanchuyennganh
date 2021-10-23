@@ -1,0 +1,70 @@
+﻿@model Demo.Models.SanPham
+@using Demo.Models
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/_Layoutchinh.cshtml";
+}
+
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Chi tiết giỏ hàng</h2>
+            </div>
+            <div class="col-12">
+                <a href="">Trang chủ</a>
+                <a href="">sản phẩm</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <table id="cart" class="table table-hover table-condensed">
+        <thead>
+            <tr>
+                <th style="width:40%">Sản phẩm</th>
+                <th style="width:8%">Giá</th>
+                <th style="width:12%">Số lượng</th>
+                <th style="width:8%">Size</th>
+                <th style="width:22%" class="text-center">Topping</th>
+                <th style="width:10%"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td data-th="Product">
+                    <div class="row">
+                        <div class="col-sm-4 hidden-xs"><img src="https://cdn.cet.edu.vn/wp-content/uploads/2018/04/tra-sua-tu-lam.jpg" alt="..." class="img-responsive" /></div>
+                        <div class="col-sm-6">
+                            <h4 style="margin:0 0 0;" class="nomargin">@Model.tenSP</h4>
+                            <h6 class="nomargin"><span>Cửa hàng: </span><a href="#">@Model.Cuahang.tenCH</a></h6>
+                            <p>@Model.mota</p>
+                        </div>
+                    </div>
+                </td>
+                <td data-th="Price">@Model.Size.gia<span>đ</span></td>
+                <td data-th="Quantity">
+                    <input type="number" class="form-control text-center" value="1">
+                </td>
+                <td data-th="Price">@Model.Size.tenSize</td>
+                <td data-th="Subtotal" class="text-center">@Model.Topping.tenTP</td>
+                <td class="actions" data-th="">
+                    <button  class="btn btn-danger btn-sm"><i  class="fa fa-refresh"></i></button>
+                    <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>
+                </td>
+            </tr>
+        </tbody>
+        <tfoot>
+            @*<tr class="visible-xs">
+                    <td class="text-center"><strong>Total 1.99</strong></td>
+                </tr>*@
+            <tr>
+                <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp tục mua</a></td>
+                <td colspan="2" class="hidden-xs"></td>
+                <td class="hidden-xs text-center"><strong>Tổng: $1.99</strong></td>
+                <td><a href="#" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a></td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+

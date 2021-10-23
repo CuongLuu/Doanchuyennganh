@@ -33,8 +33,6 @@ namespace Demo.Models
         [StringLength(50)]
         public string tenSP { get; set; }
 
-        public double? gia { get; set; }
-
         [StringLength(255)]
         public string mota { get; set; }
 
