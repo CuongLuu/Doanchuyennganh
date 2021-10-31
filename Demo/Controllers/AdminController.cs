@@ -57,5 +57,40 @@ namespace Demo.Controllers
             var listEmp = context.Admins.Where(p => p.status == 3).ToList();
             return View(listEmp);
         }
+        public ActionResult Details(int id)
+        {
+            var emp = context.Admins.FirstOrDefault(p => p.idAdmin == id);
+            return View(emp);
+        }
+        public ActionResult List()
+        {
+            var listEmp = context.Admins.Where(p => p.status != 3).ToList();
+            return View(listEmp);
+        }
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var emp = context.Admins.Where(p => p.idAdmin == id).SingleOrDefault();
+            context.Admins.Remove(emp);
+            context.SaveChanges();
+            return RedirectToAction("List", "Admin");
+        }
+        [ActionName("Restore")]
+        public ActionResult Restore(int id)
+        {
+            var emp = context.Admins.Where(p => p.idAdmin == id).SingleOrDefault();
+            emp.status = 1;
+            context.Admins.AddOrUpdate(emp);
+            context.SaveChanges();
+            return RedirectToAction("List", "Admin");
+        }
+        public ActionResult Remove(int id)
+        {
+            var emp = context.Admins.FirstOrDefault(p => p.idAdmin == id);
+            emp.status = 3;
+            context.Admins.AddOrUpdate(emp);
+            context.SaveChanges();
+            return RedirectToAction("List", "Admin");
+        }
     }
 }

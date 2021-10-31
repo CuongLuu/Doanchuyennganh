@@ -3713,6 +3713,13 @@
     <Content Include="Views\Admin\Trash.cshtml" />
     <Content Include="Views\Home\Productdetails.cshtml" />
     <Content Include="Views\Home\Cart.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\List.cshtml" />
+    <Content Include="Views\Account\ChangepasswordAdmin.cshtml" />
+    <Content Include="Views\Account\ChangepasswordUser.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Shared\_LayoutShopmanager.cshtml" />
+    <Content Include="Views\Home\HomeOfAuthor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

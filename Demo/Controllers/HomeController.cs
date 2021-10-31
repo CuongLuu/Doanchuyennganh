@@ -105,5 +105,33 @@ namespace Demo.Controllers
 
             return View(dbsanpham);
         }
+        public ActionResult Search(string strSearch)
+        {
+            List<SanPham> list = new List<SanPham>();
+            if (string.IsNullOrEmpty(strSearch))
+            {
+                ViewBag.Message = "Your contact page.";
+            }
+            else
+            {
+                list = context.SanPhams.SqlQuery("Select * from SanPham where tenSP like '%" + strSearch + "%'").ToList();
+            }
+            return View(list);
+        }
+        public ActionResult HomeOfAuthor()
+        {
+            var listNews = context.SanPhams.OrderByDescending(p => p.ngaytao).ToList();
+            foreach (var l in listNews)
+            {
+                var cat = context.LoaiSPs.Where(p => p.maLoaiSP == l.maLoaiSP).SingleOrDefault();
+                var aut = context.Cuahangs.Where(p => p.maCH == l.maCH).SingleOrDefault();
+                l.categoryname = cat.tenLoaiSP;
+                l.authorphoto = aut.sdt;
+                l.authorname = aut.tenCH;
+            }
+            return View(listNews);
+        }
+
+
     }
 }

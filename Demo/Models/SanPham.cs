@@ -9,6 +9,10 @@ namespace Demo.Models
     [Table("SanPham")]
     public partial class SanPham
     {
+        internal string categoryname;
+        internal string authorphoto;
+        internal string authorname;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SanPham()
         {
