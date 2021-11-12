@@ -3706,7 +3706,6 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutAdmin.cshtml" />
     <Content Include="Views\Admin\AdminManage.cshtml" />
-    <Content Include="Views\Home\EditProfileUser.cshtml" />
     <Content Include="Views\Admin\Decentralization.cshtml" />
     <Content Include="Views\Admin\ChangePosition.cshtml" />
     <Content Include="Views\Admin\Active.cshtml" />
@@ -3720,6 +3719,8 @@
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Shared\_LayoutShopmanager.cshtml" />
     <Content Include="Views\Home\HomeOfAuthor.cshtml" />
+    <Content Include="Views\Home\EditProfileAdmin.cshtml" />
+    <Content Include="Views\Home\EditProfileUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

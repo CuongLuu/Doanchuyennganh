@@ -119,7 +119,21 @@
                         <div class="col-md-6">
                             <div class="caption wow fadeInRight">
                                 <h2 class="fg-dark">@u.ten</h2>
-                                <p class="fg-theme fw-medium">@u.type</p>
+                                @if (u.type == 0)
+                                {
+                                    <p class="fg-theme fw-medium">Chủ cửa hàng</p>
+                                }
+                                else
+                                {
+                                    if (@u.type == 1)
+                                    {
+                                        <p class="fg-theme fw-medium">Admin</p>
+                                    }
+                                    else if (@u.type == 2)
+                                    {
+                                        <p class="fg-theme fw-medium">Nhân viên</p>
+                                    }                                    
+                                }
                                 <p>Bí quyết thành công trong đời là cứ ăn những gì bạn thích mặc cho chúng có quậy tưng cái bụng của bạn.</p>
                                 <ul class="theme-list">
                                     <li class="fg-dark"><b>From:</b> @u.diachi</li>

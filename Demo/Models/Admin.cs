@@ -5,6 +5,7 @@ namespace Demo.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web;
 
     [Table("Admin")]
     public partial class Admin
@@ -25,6 +26,8 @@ namespace Demo.Models
 
         [StringLength(50)]
         public string anh { get; set; }
+        [NotMapped]
+        public HttpPostedFileBase ImageUpload { get; set; }
 
         public byte? gioitinh { get; set; }
 

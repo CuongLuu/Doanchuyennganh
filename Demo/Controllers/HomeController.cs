@@ -132,6 +132,44 @@ namespace Demo.Controllers
             return View(listNews);
         }
 
-
+        [HttpGet]
+        public ActionResult EditProfileAdmin(int id)
+        {
+            Admin dbUpdate = context.Admins.SingleOrDefault(p => p.idAdmin == id);
+            if (dbUpdate == null)
+            {
+                return HttpNotFound();
+            }
+            return View(dbUpdate);
+        }
+        [HttpPost, ActionName("EditProfileAdmin")]
+        public ActionResult EditProfileAdmin(Admin e)
+        {
+            try
+            {
+                if (Session["AccountAdmin"] != null)
+                {
+                    Admin e2 = (Admin)Session["AccountAdmin"];                   
+                    e.ngaysua = DateTime.Now;
+                    // get photo
+                    if (e.ImageUpload != null)
+                    {
+                        string filename = Path.GetFileNameWithoutExtension(e.ImageUpload.FileName);
+                        string extension = Path.GetExtension(e.ImageUpload.FileName);
+                        filename = filename + extension;
+                        e.anh = filename;
+                        string path = Path.Combine(Server.MapPath("~/Image/ImageUpload/"), filename);
+                        e.ImageUpload.SaveAs(path);
+                    }
+                }
+                context.Admins.AddOrUpdate(e);
+                context.SaveChanges();
+                return RedirectToAction("AdminManage", "Admin");
+            }
+            catch
+            {
+                return View();
+            }
+        }
     }
 }
