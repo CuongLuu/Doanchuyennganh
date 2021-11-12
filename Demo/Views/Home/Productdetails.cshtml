@@ -96,7 +96,7 @@
             </div>
 
             <div class="purchase-info">
-                <a  href="@Url.Action("Cart","Home",new {id=Model.maSP})" class="btn">
+                <a href="@Url.Action("Cart","Home",new {id=Model.maSP})" class="btn">
                     Thêm vào giỏ hàng <i class="fas fa-shopping-cart"></i>
                 </a>
                 <button type="button" class="btn">Mua ngay</button>
@@ -104,4 +104,15 @@
         </div>
     </div>
 </div>
+@if (Request.IsAuthenticated)
+{
+    <div class="row p-4 ">
+        @{ Html.RenderAction("Index", "Comment"); }
+    </div> }
+else
+{
+    <div class="row p-4 ">
+        <p>Hãy <a href="/account/login">đăng nhập</a> để bình luận :D</p>
+    </div>
+}
 

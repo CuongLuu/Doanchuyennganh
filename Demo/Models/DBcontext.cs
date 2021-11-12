@@ -25,6 +25,7 @@ namespace Demo.Models
         public virtual DbSet<SanPham> SanPhams { get; set; }
         public virtual DbSet<Silde> Sildes { get; set; }
         public virtual DbSet<Size> Sizes { get; set; }
+        public virtual DbSet<SubCMT> SubCMTs { get; set; }
         public virtual DbSet<Topping> Toppings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -48,11 +49,6 @@ namespace Demo.Models
             modelBuilder.Entity<Admin>()
                 .Property(e => e.cmnd)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<Admin>()
-                .HasMany(e => e.CMTs)
-                .WithRequired(e => e.Admin)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Admin>()
                 .HasMany(e => e.Cuahangs)
@@ -116,6 +112,11 @@ namespace Demo.Models
             modelBuilder.Entity<SanPham>()
                 .Property(e => e.hinhanh)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<SanPham>()
+                .HasMany(e => e.CMTs)
+                .WithRequired(e => e.SanPham)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Silde>()
                 .Property(e => e.hinhanh)

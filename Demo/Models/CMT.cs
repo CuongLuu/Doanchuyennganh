@@ -9,23 +9,32 @@ namespace Demo.Models
     [Table("CMT")]
     public partial class CMT
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CMT()
+        {
+            SubCMTs = new HashSet<SubCMT>();
+        }
+
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int maCMT { get; set; }
 
         public int maND { get; set; }
 
         public int maSP { get; set; }
 
-        [Column("cmt")]
-        [StringLength(1000)]
-        public string cmt1 { get; set; }
+        [StringLength(250)]
+        public string content { get; set; }
 
-        public int idAdmin { get; set; }
+        public DateTime ngaytao { get; set; }
 
-        public virtual Admin Admin { get; set; }
+        public DateTime ngaysua { get; set; }
 
         public virtual NguoiDung NguoiDung { get; set; }
 
         public virtual SanPham SanPham { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SubCMT> SubCMTs { get; set; }
     }
 }
