@@ -99,12 +99,7 @@ namespace Demo.Controllers
             SanPham dbsanpham = context.SanPhams.FirstOrDefault(p => p.maSP == id);
             return View(dbsanpham);
         }
-        public ActionResult Cart(int id)
-        {
-            SanPham dbsanpham = context.SanPhams.FirstOrDefault(p => p.maSP == id);
-
-            return View(dbsanpham);
-        }
+        
         public ActionResult Search(string strSearch)
         {
             List<SanPham> list = new List<SanPham>();

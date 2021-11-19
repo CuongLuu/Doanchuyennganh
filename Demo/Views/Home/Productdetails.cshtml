@@ -96,12 +96,15 @@
             </div>
 
             <div class="purchase-info">
-                <a href="@Url.Action("Cart","Home",new {id=Model.maSP})" class="btn">
+                
+                
+                <a href="/cart/AddtoCart/@Model.maSP" class="btn">
                     Thêm vào giỏ hàng <i class="fas fa-shopping-cart"></i>
                 </a>
                 <button type="button" class="btn">Mua ngay</button>
             </div>
         </div>
+
     </div>
 </div>
 @if (Request.IsAuthenticated)

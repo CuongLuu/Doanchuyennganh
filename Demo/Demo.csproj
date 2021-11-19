@@ -191,14 +191,17 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\CMT.cs" />
     <Compile Include="Models\CTHD.cs" />
     <Compile Include="Models\Cuahang.cs" />
@@ -3714,7 +3717,6 @@
     <Content Include="Views\Admin\Active.cshtml" />
     <Content Include="Views\Admin\Trash.cshtml" />
     <Content Include="Views\Home\Productdetails.cshtml" />
-    <Content Include="Views\Home\Cart.cshtml" />
     <Content Include="Views\Admin\Details.cshtml" />
     <Content Include="Views\Admin\List.cshtml" />
     <Content Include="Views\Account\ChangepasswordAdmin.cshtml" />
@@ -3725,6 +3727,9 @@
     <Content Include="Views\Home\EditProfileAdmin.cshtml" />
     <Content Include="Views\Home\EditProfileUser.cshtml" />
     <Content Include="Views\Comment\Comment.cshtml" />
+    <Content Include="Views\Cart\ShowtoCart.cshtml" />
+    <Content Include="Views\Cart\BagCart.cshtml" />
+    <Content Include="Views\Shop\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
