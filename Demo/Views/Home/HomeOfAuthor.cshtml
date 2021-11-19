@@ -78,7 +78,7 @@
                 <div class="card-header">
                     <div class="row align-items-center">
                         <div class="col-12">
-                            <h3 class="mb-0">Bảng xếp hạng bài viết</h3>
+                            <h3 class="mb-0">Các sản phẩm</h3>
                         </div>
                     </div>
                 </div>
@@ -98,37 +98,37 @@
                             <tbody class="list">
                                 @foreach (var i in Model)
                                 {
-                                <tr>
-                                    tittle
-                                    <th scope="row">
-                                        <div class="media align-items-center">
-                                            <a href="#" class="avatar rounded-circle mr-3">
-                                                <img alt="Image news" src="~/Image/ImageUpload/@i.hinhanh">
-                                            </a>
+                                    <tr>
 
-                                        </div>
-                                    </th>
-                                    <td class="budget">
-                                        @i.tenSP
-                                    </td>
-                                    @*category*@
-                                    <td class="budget">
-                                        @i.LoaiSP.tenLoaiSP
-                                    </td>
-                                    <td class="budget">
-                                        @i.Cuahang.tenCH
-                                    </td>
-                                    @*view*@
-                                    <td class="budget">
-                                        @i.Size.gia
-                                    </td>
-                                    <td class="text-right">
-                                        <a href="@Url.Action("SPDetails","News",new { id= @i.maSP })" class="btn btn-sm btn-neutral"><i class="fas fa-eye"></i></a>
+                                        <th scope="row">
+                                            <div class="media align-items-center">
+                                                <a href="#" class="avatar rounded-circle mr-3">
+                                                    <img alt="Image news" src="~/Content/Template/img/@i.hinhanh">
+                                                </a>
 
-                                    </td>
+                                            </div>
+                                        </th>
+                                        <td class="budget">
+                                            @i.tenSP
+                                        </td>
+                                        @*category*@
+                                        <td class="budget">
+                                            @i.LoaiSP.tenLoaiSP
+                                        </td>
+                                        <td class="budget">
+                                            @i.Cuahang.tenCH
+                                        </td>
+                                        @*view*@
+                                        <td class="budget">
+                                            @i.gia
+                                        </td>
+                                        <td class="text-right">
+                                            <a href="@Url.Action("DetailsUser","Product",new { id= @i.maSP })" class="btn btn-sm btn-neutral"><i class="fas fa-eye"></i></a>
+
+                                        </td>
 
 
-                                </tr>
+                                    </tr>
 
                                 }
                             </tbody>

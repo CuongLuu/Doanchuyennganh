@@ -1,14 +1,19 @@
-namespace Demo.Models
+﻿namespace Demo.Models
 {
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web;
 
     [Table("SanPham")]
     public partial class SanPham
     {
+        internal string categoryname;
+        internal string authorphoto;
+        internal string authorname;
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SanPham()
         {
@@ -32,6 +37,8 @@ namespace Demo.Models
 
         [StringLength(50)]
         public string tenSP { get; set; }
+
+        public double? gia { get; set; }
 
         [StringLength(255)]
         public string mota { get; set; }
@@ -63,8 +70,7 @@ namespace Demo.Models
         public virtual Size Size { get; set; }
 
         public virtual Topping Topping { get; set; }
-        public string categoryname;
-        public string authorphoto;
-        public string authorname;
+        [NotMapped]
+        public System.Web.HttpPostedFileBase ImageUpload { get; set; }
     }
 }

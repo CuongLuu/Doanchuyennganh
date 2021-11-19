@@ -24,6 +24,7 @@
     <!-- Page plugins -->
     <!-- Argon CSS -->
     <link rel="stylesheet" href="~/Content/Admin/assets/css/argon.css?v=1.2.0" type="text/css">
+    <script src="~/Scripts/Scripts.js"></script>
 </head>
 
 <body>
@@ -49,29 +50,35 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="@Url.Action("Index","DonHang")">
                                 <i class="ni ni-bullet-list-67 text-default"></i>
-                                <span class="nav-link-text">Thể loại</span>
+                                <span class="nav-link-text">Quản lý đơn hàng</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="@Url.Action("List","Product")">
                                 <i class="ni ni-ruler-pencil text-info"></i>
                                 <span class="nav-link-text">Sản phẩm</span>
                             </a>
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="@Url.Action("ListDuyet","Product")">
                                 <i class="ni ni-check-bold"></i>
                                 <span class="nav-link-text">Duyệt bài</span>
                             </a>
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
-                                <i class="ni ni-single-02 text-purple"></i>
+                            <a class="nav-link" href="@Url.Action("List","CuaHang")">
+                                <i class="ni ni-shop"></i>
                                 <span class="nav-link-text">Cửa hàng</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="@Url.Action("Index","NguoiDung")">
+                                <i class="ni ni-single-02 text-purple"></i>
+                                <span class="nav-link-text">Người dùng</span>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -164,7 +171,7 @@
 
                                         Admin e = (Admin)Session["AccountAdmin"];
                                         <span class="avatar avatar-sm rounded-circle">
-                                            <img src="~/Image/ImageUpload/@e.anh">
+                                            <img src="@e.anh">
                                         </span>
                                         <div class="media-body  ml-2  d-none d-lg-block">
                                             <span class="mb-0 text-sm  font-weight-bold">@e.ten</span>

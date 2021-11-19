@@ -58,6 +58,12 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -193,8 +199,12 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
+    <Compile Include="Controllers\CuaHangController.cs" />
+    <Compile Include="Controllers\DonHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NguoiDungController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -203,6 +213,7 @@
     <Compile Include="Models\Admin.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\CMT.cs" />
+    <Compile Include="Models\Context\HomeModel.cs" />
     <Compile Include="Models\CTHD.cs" />
     <Compile Include="Models\Cuahang.cs" />
     <Compile Include="Models\Danhgia.cs" />
@@ -2857,12 +2868,14 @@
     <Content Include="Content\css\bootstrap-theme.min.css" />
     <Content Include="Content\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\Template\css\style.css" />
     <Content Include="Content\Template\img\about.jpg" />
     <Content Include="Content\Template\img\blog-1.jpg" />
     <Content Include="Content\Template\img\blog-2.jpg" />
     <Content Include="Content\Template\img\blog-3.jpg" />
     <Content Include="Content\Template\img\blog-4.jpg" />
+    <Content Include="Content\Template\img\ca-phe-bon-tu-hanh-nhan-phuc-long.png" />
     <Content Include="Content\Template\img\carousel-1.jpg" />
     <Content Include="Content\Template\img\carousel-2.jpg" />
     <Content Include="Content\Template\img\carousel-3.jpg" />
@@ -2891,6 +2904,8 @@
     <Content Include="Content\Template\img\testimonial-2.jpg" />
     <Content Include="Content\Template\img\testimonial-3.jpg" />
     <Content Include="Content\Template\img\testimonial-4.jpg" />
+    <Content Include="Content\Template\img\tra-dao-da-say.png" />
+    <Content Include="Content\Template\img\tra-xanh-da-say.png" />
     <Content Include="Content\Template\img\user.jpg" />
     <Content Include="Content\Template\js\jquery-1.11.1.min.js" />
     <Content Include="Content\Template\js\main.js" />
@@ -3730,6 +3745,33 @@
     <Content Include="Views\Cart\ShowtoCart.cshtml" />
     <Content Include="Views\Cart\BagCart.cshtml" />
     <Content Include="Views\Shop\Index.cshtml" />
+    <Content Include="Views\Product\List.cshtml" />
+    <Content Include="Views\Product\Create.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
+    <Content Include="Views\Product\Delete.cshtml" />
+    <Content Include="Views\Product\allProduct.cshtml" />
+    <Content Include="Views\Product\ProductCategory.cshtml" />
+    <Content Include="Views\Product\CreateUser.cshtml" />
+    <Content Include="Views\Product\DetailsUser.cshtml" />
+    <Content Include="Views\Product\ListDuyet.cshtml" />
+    <Content Include="Views\Product\EditDuyet.cshtml" />
+    <Content Include="Views\CuaHang\Index.cshtml" />
+    <Content Include="Views\CuaHang\List.cshtml" />
+    <Content Include="Views\CuaHang\Details.cshtml" />
+    <Content Include="Views\CuaHang\Create.cshtml" />
+    <Content Include="Views\CuaHang\Edit.cshtml" />
+    <Content Include="Views\CuaHang\Delete.cshtml" />
+    <Content Include="Views\DonHang\Index.cshtml" />
+    <Content Include="Views\DonHang\Details.cshtml" />
+    <Content Include="Views\DonHang\Create.cshtml" />
+    <Content Include="Views\DonHang\Edit.cshtml" />
+    <Content Include="Views\DonHang\Delete.cshtml" />
+    <Content Include="Views\NguoiDung\Index.cshtml" />
+    <Content Include="Views\NguoiDung\Details.cshtml" />
+    <Content Include="Views\NguoiDung\Create.cshtml" />
+    <Content Include="Views\NguoiDung\Edit.cshtml" />
+    <Content Include="Views\NguoiDung\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

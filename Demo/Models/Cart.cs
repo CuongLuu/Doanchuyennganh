@@ -43,7 +43,7 @@ namespace Demo.Models
         }
         public float Tongtien()
         {
-            var tongtien = items.Sum(p => p.Shopping_sanpham.Size.gia * p.Shopping_soLuong);
+            var tongtien = items.Sum(p => p.Shopping_sanpham.gia * p.Shopping_soLuong);
             return (float)tongtien;
         }
         public void DeleteItemCart(int id)

@@ -35,13 +35,13 @@
         <tbody>
             @foreach (var item in Model.Items)
             {
-                float tong = Convert.ToInt32(item.Shopping_sanpham.Size.gia.Value * item.Shopping_soLuong);
+                float tong = Convert.ToInt32(item.Shopping_sanpham.gia.Value * item.Shopping_soLuong);
 
 
                 <tr>
                     <td data-th="Product">
                         <div class="row">
-                            <div class="col-sm-4 hidden-xs"><img src="https://cdn.cet.edu.vn/wp-content/uploads/2018/04/tra-sua-tu-lam.jpg" alt="..." class="img-responsive" /></div>
+                            <div class="col-sm-4 hidden-xs"><img src="~/Content/Template/img/@item.Shopping_sanpham.hinhanh" alt="..." class="img-responsive" /></div>
                             <div class="col-sm-6">
                                 <h4 style="margin:0 0 0;" class="nomargin">@Html.DisplayFor(model => item.Shopping_sanpham.tenSP)</h4>
                                 <h6 class="nomargin"><span>Cửa hàng: </span><a href="#">@Html.DisplayFor(model => item.Shopping_sanpham.Cuahang.tenCH)</a></h6>
@@ -49,7 +49,7 @@
                             </div>
                         </div>
                     </td>
-                    <td data-th="Price">@Html.DisplayFor(model => item.Shopping_sanpham.Size.gia)<span>đ</span></td>
+                    <td data-th="Price">@Html.DisplayFor(model => item.Shopping_sanpham.gia)<span>đ</span></td>
                     <td data-th="Quantity">
                         @using (Html.BeginForm("UpdateSoluongCart", "Cart"))
                         {
@@ -79,7 +79,7 @@
         </tbody>
         <tfoot>
             <tr>
-                <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp tục mua</a></td>
+                <td><a href="/Product/allProduct" class="btn btn-warning"><i class="fa fa-angle-left"></i> Tiếp tục mua</a></td>
                 <td colspan="2" class="hidden-xs"></td>
                 <td class="hidden-xs text-center"><strong>Tổng:@Model.Tongtien()<span>đ</span></strong></td>
                 <td><a href="#" class="btn btn-success btn-block">Thanh toán <i class="fa fa-angle-right"></i></a></td>
