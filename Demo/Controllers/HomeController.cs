@@ -1,12 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Demo.Models;
 using DocumentFormat.OpenXml.Bibliography;
+using Demo.Models.Context;
+
 
 namespace Demo.Controllers
 {
@@ -15,7 +20,10 @@ namespace Demo.Controllers
         DBcontext context = new DBcontext();
         public ActionResult Index()
         {
-            return View();
+            HomeModel obj = new HomeModel();
+            obj.ListSP = context.SanPhams.ToList();
+            obj.ListSlide = context.Sildes.ToList();
+            return View(obj);
         }
 
         public ActionResult Profile()

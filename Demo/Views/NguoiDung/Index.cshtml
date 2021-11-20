@@ -5,91 +5,98 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Index</h2>
+<div class="header bg-primary pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
+                <div class="col-lg-6 col-7">
+                    <h6 class="h2 text-white d-inline-block mb-0">Danh sách nguời dùng</h6>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.tenND)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.gioitinh)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ngaysinh)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.anh)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sdt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.diachi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ngaytao)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ngaysua)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.matkhau)
-        </th>
-        <th></th>
-    </tr>
+                </div>
+                <div class="col-lg-6 col-5 text-right">
+                    <a href="#" class="btn btn-sm btn-neutral"><i class="fas fa-trash"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col">
+            <div class="card">
+                <!-- Card header -->
+                <div class="card-header border-0">
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.tenND)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.gioitinh)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ngaysinh)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.anh)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.sdt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.diachi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ngaytao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ngaysua)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.matkhau)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.maND }) |
-                @Html.ActionLink("Details", "Details", new { id = item.maND }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.maND })
-            </td>
-        </tr>
-    }
+                   
+                </div>
+                <!-- Light table -->
+                <div class="table-responsive">
+                    <table class="table align-items-center table-flush">
+                        <thead class="thead-light">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col" class="sort" data-sort="budget">Tên người dùng</th>
+                                <th scope="col" class="sort" data-sort="budget">Địa chỉ </th>
+                                <th scope="col" class="sort" data-sort="budget">Email </th>
+                                <th scope="col" class="sort" data-sort="budget">SĐT </th>
+                                <th scope="col" class="sort" data-sort="budget">Ngày sinh </th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="list">
+                            @foreach (var i in Model)
+                            {
+                <tr>
+                    <td>
+                        <div class="media-body">
+                            <span class="name mb-0 text-sm">@i.maND</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="media-body">
+                            <span class="name mb-0 text-sm">@i.tenND</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="media-body">
+                            <span class="name mb-0 text-sm">@i.diachi</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="media-body">
+                            <span class="name mb-0 text-sm">@i.email</span>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="media-body">
+                            <span class="name mb-0 text-sm">@i.sdt</span>
+                        </div>
+                    </td>
+                             <td>
+                        <div class="media-body">
+                            <span class="name mb-0 text-sm">@i.ngaysinh</span>
+                        </div>
+                    </td>
 
-</table>
+                    <td>
+                        @*status*@
+
+                    </td>
+                    <td class="text-right">
+                        <a href="@Url.Action("Details","NguoiDung",new { id= @i.maND })" class="btn btn-sm btn-neutral"><i class="fas fa-eye"></i></a>
+                        <a href="@Url.Action("Edit","NguoiDung",new { id= @i.maND })" class="btn btn-sm btn-neutral"><i class="fas fa-edit"></i></a>
+                        <a href="@Url.Action("Delete","NguoiDung",new { id= @i.maND })" class="btn btn-sm btn-neutral"><i class="fas fa-minus-circle"></i></a>
+
+                    </td>
+                </tr>}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Card footer -->
+                <div class="card-footer py-4">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

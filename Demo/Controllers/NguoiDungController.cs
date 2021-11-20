@@ -36,28 +36,7 @@ namespace Demo.Controllers
         }
 
         // GET: NguoiDung/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: NguoiDung/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "maND,tenND,gioitinh,ngaysinh,anh,sdt,email,diachi,status,ngaytao,ngaysua,matkhau")] NguoiDung nguoiDung)
-        {
-            if (ModelState.IsValid)
-            {
-                db.NguoiDungs.Add(nguoiDung);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(nguoiDung);
-        }
-
+       
         // GET: NguoiDung/Edit/5
         public ActionResult Edit(int? id)
         {

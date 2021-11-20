@@ -2,7 +2,7 @@
 @using PagedList.Mvc;
 @model PagedList.PagedList<SanPham>
 @{ ViewBag.Title = "List";
-                Layout = "~/Views/Shared/_LayoutAdmin.cshtml"; }
+                Layout = "~/Views/Shared/_LayoutAdmin.cshtml";}
 
 <div class="header bg-primary pb-6">
     <div class="container-fluid">
@@ -22,12 +22,19 @@
 <div class="container-fluid mt--6">
     <div class="row">
         <div class="col">
+
             <div class="card">
                 <!-- Card header -->
                 <div class="card-header border-0">
 
                     <a href="/Product/Create" class="btn btn-round btn-primary"><i class="fas fa-plus-circle"></i></a>
                 </div>
+                @using (Html.BeginForm("List", "Product", FormMethod.Get)) 
+                { 
+          
+                }
+                    
+
                 <!-- Light table -->
                 <div class="table-responsive">
                     <table class="table align-items-center table-flush">
@@ -89,8 +96,8 @@
             <i class="bg-info"></i><span class="status">Ẩn</span> }
         else
         { @*status = 0*@
-                            <i class="bg-info"></i>
-                                                <span class="status">Đợi duyệt</span>}
+                                <i class="bg-info"></i>
+                                                    <span class="status">Đợi duyệt</span>}
 
                         </span>
                     </td>
@@ -100,8 +107,7 @@
                         <a href="@Url.Action("Delete","Product",new { id= @i.maSP })" class="btn btn-sm btn-neutral"><i class="fas fa-minus-circle"></i></a>
 
                     </td>
-                </tr>
-}
+                </tr>}
                         </tbody>
                     </table>
                 </div>
@@ -137,7 +143,7 @@
                     </a>
                 </li>*@
 
-            @Html.PagedListPager(Model, page => Url.Action("List", new { page = page }))
+            @Html.PagedListPager(Model, page => Url.Action("List", new { page,currentFilter = ViewBag.CurrentFilter }))
         </ul>
         @*<nav aria-label="...">
                 <div class="pagination-container">

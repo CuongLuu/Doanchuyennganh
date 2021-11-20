@@ -5,103 +5,80 @@
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
 
-<h2>Details</h2>
+<div class="header bg-primary pb-6">
+    <div class="container-fluid">
+        <div class="header-body">
+            <div class="row align-items-center py-4">
 
-<div>
-    <h4>NguoiDung</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.tenND)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.tenND)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.gioitinh)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.gioitinh)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ngaysinh)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ngaysinh)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.anh)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.anh)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.sdt)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.sdt)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.diachi)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.diachi)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.status)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.status)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ngaytao)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ngaytao)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ngaysua)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ngaysua)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.matkhau)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.matkhau)
-        </dd>
-
-    </dl>
+            </div>
+        </div>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.maND }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="container-fluid mt--6">
+    <div class="row">
+        <div class="col-xl-8 order-xl-1">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <h3 class="mb-0">Thông tin người dùng @Model.tenND</h3>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="pl-lg-4">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="tittle">Tên cửa hàng</label>
+                                    <input type="text" class="form-control" disabled value="@Model.tenND" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="tittle">Địa chỉ</label>
+                                    <input type="text" class="form-control" disabled value="@Model.diachi" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="tittle">Email</label>
+                                    <input type="text" class="form-control" disabled value=" @Html.DisplayFor(model => model.email)" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="tittle">Tên loại sản phẩm</label>
+                                    <input type="text" class="form-control" disabled value=" @Html.DisplayFor(model => model.sdt)" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="input-email">Giới tính</label>
+                                    @if (Model.gioitinh == 0)
+                                    {
+                                        <input type="text" class="form-control" disabled value="Nam" />
+                                    }
+                                  
+                                    else if (Model.gioitinh == 1)
+                                    {
+                                        <input type="text" class="form-control" disabled value="Nữ" />
+                                    }
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <a class="btn btn-primary my-4" href="@Url.Action("Index","NguoiDung")">OK</a>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+

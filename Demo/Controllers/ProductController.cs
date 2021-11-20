@@ -20,27 +20,30 @@ namespace Demo.Controllers
         // GET: Product
         DBcontext context = new DBcontext();
         // GET: News
-        private List<SanPham> GetNewsList()
+        
+        public ActionResult List(string currentFilter, string SearchString , int? page)
         {
-            var listSP = context.SanPhams.ToList();
-            foreach (var l in listSP)
+            var listSP = new List<SanPham>();
+            if(SearchString !=null)
             {
-                var masp = context.SanPhams.Where(p => p.maSP == l.maSP).SingleOrDefault();
-                var mach = context.Cuahangs.Where(p => p.maCH == l.maCH).SingleOrDefault();
-                l.tenSP = masp.tenSP;
-                l.hinhanh = masp.hinhanh;
-                l.maCH = mach.maCH;
-            }
-            return listSP;
-        }
-        public ActionResult List(int? page)
-        {
-            if (page == null)
                 page = 1;
-            var listNews = GetNewsList();
+            } 
+            else
+            {
+                SearchString = currentFilter;
+            } 
+            if (!string.IsNullOrEmpty(SearchString))
+            {
+                listSP = context.SanPhams.Where(n => n.tenSP.Contains(SearchString)).ToList();
+            }
+            else
+            {
+                listSP = context.SanPhams.ToList();
+            }
+            ViewBag.currentFilter = SearchString;
             int pageSize = 5;
-            int pageNum = (page ?? 1);
-            return View(listNews.ToPagedList(pageNum, pageSize));
+            int pageNumber = (page ?? 1);
+            return View(listSP.ToPagedList(pageNumber, pageSize));
         }
         [HttpGet]
 
@@ -171,9 +174,10 @@ namespace Demo.Controllers
             }
             base.Dispose(disposing);
         }
-        public ActionResult allProduct()
+        public ActionResult allProduct(string currentFilter, string SearchString, int? page)
         {
             HomeModel obj = new HomeModel();
+
             obj.ListSP = context.SanPhams.ToList();
             obj.ListCH = context.Cuahangs.ToList();
             return View(obj);
