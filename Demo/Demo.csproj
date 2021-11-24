@@ -204,6 +204,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\NguoiDungController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
     <Compile Include="Global.asax.cs">
@@ -2931,6 +2932,7 @@
     <Content Include="Content\Template\img\tradaophuclong.png" />
     <Content Include="Content\Template\img\traolongsuaphuclong.png" />
     <Content Include="Content\Template\img\trasenvanghighland.png" />
+    <Content Include="Content\Template\img\trasua.jpg" />
     <Content Include="Content\Template\img\trathachvai_1highland.png" />
     <Content Include="Content\Template\img\trathanhdaohighland.png" />
     <Content Include="Content\Template\img\trathaomocphuclong.png" />
@@ -3775,7 +3777,6 @@
     <Content Include="Views\Comment\Comment.cshtml" />
     <Content Include="Views\Cart\ShowtoCart.cshtml" />
     <Content Include="Views\Cart\BagCart.cshtml" />
-    <Content Include="Views\Shop\Index.cshtml" />
     <Content Include="Views\Product\List.cshtml" />
     <Content Include="Views\Product\Create.cshtml" />
     <Content Include="Views\Product\Details.cshtml" />
@@ -3802,6 +3803,9 @@
     <Content Include="Views\NguoiDung\Details.cshtml" />
     <Content Include="Views\NguoiDung\Edit.cshtml" />
     <Content Include="Views\NguoiDung\Delete.cshtml" />
+    <Content Include="Views\Shop\shop.cshtml" />
+    <Content Include="Views\Payment\Payment.cshtml" />
+    <Content Include="Views\Payment\Thongbao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

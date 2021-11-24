@@ -8,6 +8,8 @@ namespace Demo.Models
     public class CartItem
     {
         public SanPham Shopping_sanpham { get; set; }
+        public HoaDon Shopping_hoadon { get; set; }
+        public NguoiDung Shopping_nguoidung { get; set; }
         public int Shopping_soLuong { get; set; }
     }
     public class Cart
