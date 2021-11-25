@@ -58,12 +58,63 @@ namespace Demo.Controllers
             }
         }
         public ActionResult Payment()
+
         {
-            return View();
+            if (Session["Account"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            else
+            {
+                if (Session["Cart"] == null)
+                    return RedirectToAction("Payment", "Payment");
+                Cart cart = Session["Cart"] as Cart;
+
+                return View(cart);
+            }
         }
         public ActionResult Thongbao()
         {
             return View();
+        }
+        ///
+        public Cart GetCart()
+        {
+            Cart cart = Session["Cart"] as Cart;
+            if (cart == null || Session["Cart"] == null)
+            {
+                cart = new Cart();
+                Session["Cart"] = cart;
+            }
+            return cart;
+        }
+        public ActionResult AddtoCart(int id)
+        {
+            var sanpham = context.SanPhams.SingleOrDefault(p => p.maSP == id);
+            if (sanpham != null)
+            {
+                GetCart().Add(sanpham, 1);
+
+            }
+            return RedirectToAction("Payment", "Payment");
+        }
+        public ActionResult infUser()
+        {
+            
+            NguoiDung u = (NguoiDung)Session["Account"];
+            
+                var ten =u.tenND;
+                var diachi = u.diachi;
+                var sdt = u.sdt;
+                ViewBag.ten = ten;
+                ViewBag.diachi = diachi;
+                ViewBag.sdt = sdt;
+                ViewBag.tg = DateTime.Now;
+            
+            
+            return PartialView("infUser");
+            
+
         }
     }
 }

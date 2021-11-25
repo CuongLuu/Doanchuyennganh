@@ -3806,6 +3806,7 @@
     <Content Include="Views\Shop\shop.cshtml" />
     <Content Include="Views\Payment\Payment.cshtml" />
     <Content Include="Views\Payment\Thongbao.cshtml" />
+    <Content Include="Views\Payment\infUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
