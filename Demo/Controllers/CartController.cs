@@ -16,7 +16,7 @@ namespace Demo.Controllers
             if(cart==null || Session["Cart"] == null)
             {
                 cart = new Cart();
-                Session["Cart"] = cart;
+                Session["Cart"] = cart; 
             }
             return cart;
         }
@@ -26,7 +26,7 @@ namespace Demo.Controllers
             if (sanpham != null)
             {
                 GetCart().Add(sanpham,1);
-
+               
             }
             return RedirectToAction("ShowtoCart", "Cart");
         }
