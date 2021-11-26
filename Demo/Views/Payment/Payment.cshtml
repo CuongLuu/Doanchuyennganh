@@ -1,4 +1,4 @@
-﻿
+﻿@model Demo.Models.Cart
 @{
     ViewBag.Title = "Payment";
     Layout = "~/Views/Shared/_Layoutchinh.cshtml";
@@ -11,8 +11,8 @@
                 <h2>Contact Us</h2>
             </div>
             <div class="col-12">
-                <a href="">Home</a>
-                <a href="">Contact</a>
+                <a href="">Menu</a>
+                <a href="">Giỏ hàng</a>
             </div>
         </div>
     </div>
@@ -24,32 +24,43 @@
                 <h1>Thông tin đơn hàng</h1>
             </div>
             <div class="row">
+               
+                    
 
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                    <address>
-                        <strong>Tên người dùng</strong>
-                        <br>
-                        Địa chỉ
-
-                        <br>
-                        <abbr title="Phone">Số điện thoại: </abbr>
-                    </address>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 text-right">
-                    <p>
-                        <em>Ngày đặt</em>
-                    </p>
+                    @Html.Action("infUser", "Payment")
+                
+                    <!--<div class="col-xs-6 col-sm-6 col-md-6">
+        <address>
+            <strong>-->
+                    @*@item.Shopping_nguoidung.tenND*@
+                    <!--</strong>
+        <br>-->
+                    @*@item.Shopping_nguoidung.diachi*@
+                    <!--<br>
+        <abbr title="Phone">Số điện thoại:-->
+                    @*@item.Shopping_nguoidung.sdt*@
+                    <!--</abbr>
+            </address>
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+            <p>
+                <em>Ngày đặt:</em>
+            </p>-->
                     <!-- <p>
-                        <em>Receipt #: 34522677W</em>
-                    </p> -->
+            <em>Receipt #: 34522677W</em>
+        </p> -->
+                    <!--</div>-->
+
                 </div>
-            </div>
+
             <div class="row">
+
                 <!-- <div class="text-center">
-        <h1>Receipt</h1>
-    </div> -->
-                </span>
+                    <h1>Receipt</h1>
+                </div> -->
+
                 <table class="table table-hover">
+
                     <thead>
                         <tr>
                             <th>Sản phẩm</th>
@@ -59,34 +70,24 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="col-md-9">
-                                <em>Baked Rodopa Sheep Feta</em></h4>
-                            </td>
-                            <td class="col-md-1" style="text-align: center"> 2 </td>
-                            <td class="col-md-1 text-center">$13</td>
-                            <td class="col-md-1 text-center">$26</td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-9">
-                                <em>Lebanese Cabbage Salad</em></h4>
-                            </td>
-                            <td class="col-md-1" style="text-align: center"> 1 </td>
-                            <td class="col-md-1 text-center">$8</td>
-                            <td class="col-md-1 text-center">$8</td>
-                        </tr>
-                        <tr>
-                            <td class="col-md-9">
-                                <em>Baked Tart with Thyme and Garlic</em></h4>
-                            </td>
-                            <td class="col-md-1" style="text-align: center"> 3 </td>
-                            <td class="col-md-1 text-center">$16</td>
-                            <td class="col-md-1 text-center">$48</td>
-                        </tr>
+                        @foreach (var item in Model.Items)
+                        {
+                            float tong = Convert.ToInt32(item.Shopping_sanpham.gia.Value * item.Shopping_soLuong);
+                            <tr>
+                                <td class="col-md-9">
+                                    <em>@item.Shopping_sanpham.tenSP</em>
+                                </td>
+                                <td class="col-md-1" style="text-align: center"> @item.Shopping_soLuong </td>
+                                <td class="col-md-1 text-center">@item.Shopping_sanpham.gia</td>
+                                <td class="col-md-1 text-center">@tong</td>
+                            </tr>
+                        }
+
 
 
                     </tbody>
                 </table>
+
                 <tr>
                     <td></td>
                     <td></td>
@@ -94,13 +95,16 @@
                         <h4><strong style="margin-left: 250px">Thành Tiền: </strong></h4>
                     </td>
                     <td class="text-center text-danger">
-                        <h4><strong style="margin-left: 0px">14000đ</strong></h4>
+                        <h4><strong style="margin-left: 0px">@Model.Tongtien()</strong></h4>
                     </td>
                 </tr>
-                <a  href="/Payment/Thongbao" class="btn btn-success btn-lg btn-block">
+
+                <a href="/Payment/Pay" class="btn btn-success btn-lg btn-block">
                     Xác nhận   <span class="glyphicon glyphicon-chevron-right"></span>
                 </a></td>
+
             </div>
+
         </div>
     </div>
 

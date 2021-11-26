@@ -3830,12 +3830,16 @@
     <Content Include="Views\Shop\shop.cshtml" />
     <Content Include="Views\Payment\Payment.cshtml" />
     <Content Include="Views\Payment\Thongbao.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\DatHang\Index.cshtml" />
     <Content Include="Views\Donhang\Create.cshtml" />
     <Content Include="Views\Donhang\Delete.cshtml" />
     <Content Include="Views\Donhang\Details.cshtml" />
     <Content Include="Views\Donhang\Edit.cshtml" />
     <Content Include="Views\Donhang\Index.cshtml" />
+=======
+    <Content Include="Views\Payment\infUser.cshtml" />
+>>>>>>> a9460bf1cc09c655ee931c7b755379edee53de95
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

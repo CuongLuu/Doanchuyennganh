@@ -12,9 +12,9 @@ namespace Demo.Controllers
     {
         // GET: Payment
         DBcontext context = new DBcontext();
-        public ActionResult Payment()
+        public ActionResult Pay()
         {
-            if(Session["Account"] == null)
+            if (Session["Account"] == null)
             {
                 return RedirectToAction("Login", "Account");
             }
@@ -22,11 +22,12 @@ namespace Demo.Controllers
             {
 
                 //lấy thông tin giỏ hàng từ session
-                
+
                 Cart cart = Session["Cart"] as Cart;
-                
+
                 //gán dữu liệu cho table hóa đơn
                 HoaDon objHoaDon = new HoaDon();
+<<<<<<< HEAD
             objHoaDon.ghichu = "Đơn Hàng " + DateTime.Now.ToString("yyyyMMddHHmmss");
             objHoaDon.ngaymua = DateTime.Now;
             objHoaDon.sotien = cart.Items.Sum(p => p.Shopping_sanpham.gia * p.Shopping_soLuong);
@@ -34,6 +35,15 @@ namespace Demo.Controllers
             context.HoaDons.Add(objHoaDon);
             context.SaveChanges();
                 // gán dữ liệu vào table CTHD
+=======
+                objHoaDon.ghichu = "Đơn Hàng " + DateTime.Now.ToString("yyyyMMddHHmmss");
+                objHoaDon.ngaymua = DateTime.Now;
+                objHoaDon.sotien = cart.Items.Sum(p => p.Shopping_sanpham.gia * p.Shopping_soLuong);
+                objHoaDon.soluong = cart.Items.Sum(p => p.Shopping_soLuong);
+                context.HoaDons.Add(objHoaDon);
+                context.SaveChanges();
+                ViewBag.hoadon = objHoaDon;
+>>>>>>> a9460bf1cc09c655ee931c7b755379edee53de95
                 int mahoadon = objHoaDon.maHD;
                 List<CTHD> chitiethoadon = new List<CTHD>();
                 NguoiDung u = (NguoiDung)Session["Account"];
@@ -59,9 +69,64 @@ namespace Demo.Controllers
                 
             }
         }
+        public ActionResult Payment()
+
+        {
+            if (Session["Account"] == null)
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            else
+            {
+                if (Session["Cart"] == null)
+                    return RedirectToAction("Payment", "Payment");
+                Cart cart = Session["Cart"] as Cart;
+
+                return View(cart);
+            }
+        }
         public ActionResult Thongbao()
         {
             return View();
+        }
+        ///
+        public Cart GetCart()
+        {
+            Cart cart = Session["Cart"] as Cart;
+            if (cart == null || Session["Cart"] == null)
+            {
+                cart = new Cart();
+                Session["Cart"] = cart;
+            }
+            return cart;
+        }
+        public ActionResult AddtoCart(int id)
+        {
+            var sanpham = context.SanPhams.SingleOrDefault(p => p.maSP == id);
+            if (sanpham != null)
+            {
+                GetCart().Add(sanpham, 1);
+
+            }
+            return RedirectToAction("Payment", "Payment");
+        }
+        public ActionResult infUser()
+        {
+            
+            NguoiDung u = (NguoiDung)Session["Account"];
+            
+                var ten =u.tenND;
+                var diachi = u.diachi;
+                var sdt = u.sdt;
+                ViewBag.ten = ten;
+                ViewBag.diachi = diachi;
+                ViewBag.sdt = sdt;
+                ViewBag.tg = DateTime.Now;
+            
+            
+            return PartialView("infUser");
+            
+
         }
     }
 }
