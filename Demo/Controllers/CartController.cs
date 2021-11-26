@@ -30,6 +30,16 @@ namespace Demo.Controllers
             }
             return RedirectToAction("ShowtoCart", "Cart");
         }
+        public ActionResult AddtoCart1(int id, string strURL)
+        {
+            var sanpham = context.SanPhams.SingleOrDefault(p => p.maSP == id);
+            if (sanpham != null)
+            {
+                GetCart().Add(sanpham, 1);
+                return Redirect(strURL);
+            }
+            return Redirect(strURL);
+        }
         public ActionResult ShowtoCart()
         {
             if (Session["Cart"] == null)

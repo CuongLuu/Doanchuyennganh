@@ -183,10 +183,14 @@ namespace Demo.Controllers
             return View(obj);
         }
 
-        public ActionResult ProductCategory(int id)
+        public ActionResult ProductCategory(int id, int? page)
         {
             var listProduct = context.SanPhams.Where(n => n.maCH == id).ToList();
-            return View(listProduct);
+            if (page == null)
+                page = 1;
+            int pageSize = 9;
+            int pageNum = (page ?? 1);
+            return View(listProduct.ToPagedList(pageNum, pageSize));
         }
         public ActionResult CreateUser()
         {
@@ -203,7 +207,7 @@ namespace Demo.Controllers
         {
             try
             {
-
+               
                 //get photo
                 if (ModelState.IsValid)
                 {
@@ -247,10 +251,14 @@ namespace Demo.Controllers
             }
             return View(sanPham);
         }
-        public ActionResult ListDuyet()
+        public ActionResult ListDuyet(int? page)
         {
             var listEmp = context.SanPhams.Where(p => p.status == 0).ToList();
-            return View(listEmp);
+            if (page == null)
+                page = 1;
+            int pageSize = 5;
+            int pageNum = (page ?? 1);
+            return View(listEmp.ToPagedList(pageNum, pageSize));
         }
         public ActionResult EditDuyet(int? id)
         {

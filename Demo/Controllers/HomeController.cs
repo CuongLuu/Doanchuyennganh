@@ -11,6 +11,8 @@ using System.Web.Mvc;
 using Demo.Models;
 using DocumentFormat.OpenXml.Bibliography;
 using Demo.Models.Context;
+using PagedList;
+using PagedList.Mvc;
 
 
 namespace Demo.Controllers
@@ -121,7 +123,7 @@ namespace Demo.Controllers
             }
             return View(list);
         }
-        public ActionResult HomeOfAuthor()
+        public ActionResult HomeOfAuthor(int? page)
         {
             var listNews = context.SanPhams.OrderByDescending(p => p.ngaytao).ToList();
             foreach (var l in listNews)
@@ -132,7 +134,12 @@ namespace Demo.Controllers
                 l.authorphoto = aut.sdt;
                 l.authorname = aut.tenCH;
             }
-            return View(listNews);
+            if (page == null)
+                page = 1;
+            int pageSize = 15;
+            int pageNum = (page ?? 1);
+            listNews = listNews.OrderByDescending(n => n.maSP).ToList();
+            return View(listNews.ToPagedList(pageNum, pageSize));
         }
 
         [HttpGet]

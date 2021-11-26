@@ -34,27 +34,29 @@ namespace Demo.Controllers
             context.HoaDons.Add(objHoaDon);
             context.SaveChanges();
                 // gán dữ liệu vào table CTHD
-                var listitem =  (List<CartItem>)Session["Cart"] ;
                 int mahoadon = objHoaDon.maHD;
                 List<CTHD> chitiethoadon = new List<CTHD>();
-                foreach(var item in listitem)
+                NguoiDung u = (NguoiDung)Session["Account"];
+                foreach (var item in cart.Items)
                 {
                     CTHD objCTHD = new CTHD();
-                    objCTHD.maHD = item.Shopping_hoadon.maHD;
+                    objCTHD.maHD = mahoadon;
                     objCTHD.maCH = item.Shopping_sanpham.maCH;
-                    objCTHD.maND = item.Shopping_nguoidung.maND;
+                    objCTHD.maND = u.maND;
                     objCTHD.maSP = item.Shopping_sanpham.maSP;
-                    objCTHD.soluong = item.Shopping_hoadon.soluong;
+                    objCTHD.soluong = item.Shopping_soLuong;
                     objCTHD.giaban = item.Shopping_sanpham.gia;
-                    objCTHD.thanhtien = item.Shopping_hoadon.sotien;
-                   
+                    objCTHD.thanhtien = item.Shopping_soLuong * item.Shopping_sanpham.gia;
+
                     chitiethoadon.Add(objCTHD);
-                    
+
                 }
                 context.CTHDs.AddRange(chitiethoadon);
                 context.SaveChanges();
-            return View();
+                return RedirectToAction("Thongbao", "Payment");
 
+
+                
             }
         }
         public ActionResult Thongbao()
